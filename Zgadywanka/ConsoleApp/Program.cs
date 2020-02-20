@@ -9,19 +9,25 @@ namespace ConsoleApp
             Console.WriteLine("Gra za Duzo za Malo");
 
             //1. Komputer losuje
-            Random los = new Random(); // Tworze obiekt tupu random
-
+            #region losowanie
+            var los = new Random(); // Tworze obiekt tupu random
             int wylosowana = los.Next(1, 101);
+#if DEBUG
+            Console.WriteLine(wylosowana); // Howa kod po przeniesieniu sie  na tryb relise
+#endif
+            Console.WriteLine("Wylosowałem liczbę od 1 - 100. \nOdgadnij ją!");
+            #endregion
 
-            Console.WriteLine(wylosowana);
 
             bool odgadniete = false;
+
+
 
             // Dopuki nie odgadniete
             while(!odgadniete)
             {
                 //2. człowiek proponuje 
-                Console.WriteLine("Wylosowałem liczbę od 1 - 100. \nOdgadnij ją!");
+                
 
                 Console.Write("Podaj swoją propozycje");
 
@@ -71,7 +77,7 @@ namespace ConsoleApp
 
             }
 
-            Console.WriteLine("Koniec Gry Wygrałes");
+            Console.WriteLine("Koniec Gry. Wygrałes!");
 
         }
     }

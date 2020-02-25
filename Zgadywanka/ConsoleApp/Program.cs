@@ -32,13 +32,12 @@ namespace ConsoleApp
                 Console.Write("Podaj swoją propozycje");
 
                 //int propozycja = int.Parse(Console.ReadLine());
+
                 int propozycja = int.Parse(Console.ReadLine());
 
 
                 //3. komp ocenia
 
-               // while (propozycja > wylosowana || propozycja < wylosowana)
-               // {
 
 
                     if (propozycja < wylosowana)

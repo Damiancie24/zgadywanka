@@ -43,13 +43,13 @@ namespace ModelGry
         public Odp Odpowiedz(int propozycja)
         {
             
-            if (wylosowana > propozycja)
+            if (wylosowana < propozycja)
             {
                 HistoriaGry.Add(new Ruch(propozycja, Odp.ZaMalo));
                 return Odp.ZaMalo;
 
             }
-            else if (wylosowana < propozycja)
+            else if (wylosowana > propozycja)
             {
                 HistoriaGry.Add(new Ruch(propozycja, Odp.ZaDuzo));
                 return Odp.ZaDuzo;

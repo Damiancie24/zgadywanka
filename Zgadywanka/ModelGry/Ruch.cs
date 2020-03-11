@@ -18,7 +18,7 @@ namespace ModelGry
         }
 
         public override string ToString()
-            => $"{Propozycja} | {| Odpowiedz} | {Kiedy}";
+            => $"{Propozycja} | { Odpowiedz} | {Kiedy}";
 
     }
 }

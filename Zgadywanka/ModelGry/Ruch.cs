@@ -5,9 +5,9 @@ namespace ModelGry
 {
     public class Ruch
     {
-        public readonly int Propozycja; 
+        public readonly int Propozycja;
         public readonly Odp Odpowiedz;
-       public readonly DateTime Kiedy;
+        public readonly DateTime Kiedy;
 
         public Ruch(int prop, Odp odp)
         {

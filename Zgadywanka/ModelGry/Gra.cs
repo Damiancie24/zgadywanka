@@ -13,7 +13,7 @@ namespace ModelGry
 
 
         //METODY (KONSTUKTORY)
-        public Gra(int a =1, int b = 100)
+        public Gra(int a =1 , int b =10)
         {
             Random rnd = new Random();
            wylosowana = rnd.Next(a, b + 1);
@@ -43,13 +43,13 @@ namespace ModelGry
         public Odp Odpowiedz(int propozycja)
         {
             
-            if (wylosowana < propozycja)
+            if (propozycja < wylosowana)
             {
                 HistoriaGry.Add(new Ruch(propozycja, Odp.ZaMalo));
                 return Odp.ZaMalo;
 
             }
-            else if (wylosowana > propozycja)
+            else if (propozycja > wylosowana )
             {
                 HistoriaGry.Add(new Ruch(propozycja, Odp.ZaDuzo));
                 return Odp.ZaDuzo;
@@ -77,7 +77,7 @@ namespace ModelGry
         Rozpoczeta,
         Trwa,
         Zapalzowana,
-        Zakonczona
+        Zakonczona,
     }
 
     public enum Odp

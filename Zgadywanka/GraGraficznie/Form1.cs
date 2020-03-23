@@ -15,6 +15,7 @@ namespace GraGraficznie
     public partial class Form1 : Form
     {
         private Gra g;
+        private Ruch r;
 
         public Form1()
         {
@@ -35,13 +36,15 @@ namespace GraGraficznie
             int a = int.Parse(textBoxZakresOd.Text);
             int b = int.Parse(textBoxZakresDo.Text);
 
-            g = new Gra();
+            g = new Gra(a, b);
+            
             // Wypisz komunikat zeby odgadyewac
 
             labelKomunikat1.Text = $"Wylosowano liczbę od {a} do {b}";
             groupBoxLosowanie.Enabled = false;
-
             groupBoxPropozycja.Visible = true;
+            buttonZatwierdz.Enabled = true;
+            textBoxPropozycja.Enabled = true;
 
 
         }
@@ -50,6 +53,9 @@ namespace GraGraficznie
         {
             int propozycja = int.Parse(textBoxPropozycja.Text);
            var odp =  g.Odpowiedz(propozycja);
+            //int wylosowana = (string)g.Wylosowana;
+            //TimeSpan span = Ruch(int prop, Odp odp);
+
 
             switch ( odp )
             {
@@ -64,16 +70,18 @@ namespace GraGraficznie
                 case Odp.Trafiono:
                     labelOdpowiedz.ForeColor = Color.Green;
                     labelOdpowiedz.Text = "Trafiono";
-                    groupBoxPropozycja.Enabled = false;
-                    ButtonNowaGra.Enabled = true;
-                    
+                    buttonZatwierdz.Enabled = false;
+                    textBoxPropozycja.Enabled = false;
+                    buttonGraOdNowa.Visible = true;
+                    //labelWylosowana. = wylosowana;
+                   // labelCzasGry.Text = $"{TimeSpan()}";
                     break;
             }
         }
 
         private void textBoxZakresOd_TextChanged(object sender, EventArgs e)
         {
-            int wynik = 0;
+            int wynik;
             if(int.TryParse(textBoxZakresOd.Text, out wynik))
             {
                 textBoxZakresOd.BackColor = Color.LightGreen;
@@ -86,6 +94,44 @@ namespace GraGraficznie
             }
                
 
+
+        }
+
+        private void textBoxZakresDo_TextChanged(object sender, EventArgs e)
+        {
+            int wynik;
+            if(int.TryParse(textBoxZakresDo.Text, out wynik))
+            {
+                textBoxZakresDo.BackColor = Color.LightGreen;
+                buttonWylosuj.Enabled = true;
+            }
+            else
+            {
+                textBoxZakresDo.BackColor = Color.PaleVioletRed;
+                buttonWylosuj.Enabled = false;
+            }
+
+        }
+
+        private void labelCzasGry_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonGraOdNowa_Click(object sender, EventArgs e)
+        {
+            groupBoxPropozycja.Visible = false;
+            ButtonNowaGra.Enabled = true;
+            groupBoxLosowanie.Enabled = true;
+        }
+
+        private void buttonPrzerwij_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        private void buttonHistoria_Click(object sender, EventArgs e)
+        {
 
         }
     }
